@@ -1,4 +1,6 @@
 
+
+<body>
 <style>
       body {
         background-color: white;
@@ -7,7 +9,6 @@
         color: black;
       }
     </style>
-<body>
 
 ![diagrama adopet](/img/adopet-logo.png)
 <font color="3874ff">
@@ -36,6 +37,10 @@ A tabela Tutores armazena informações sobre os tutores registrados no sistema.
 - nome: o nome do tutor (tipo: texto)<br>
 - email: o endereço de e-mail do tutor (tipo: texto)<br>
 - senha: a senha do tutor (tipo: texto)
+- cidade: a cidade do tutor (tipo: texto)<br>
+- telefone: o telefone do tutor (tipo: texto)<br>
+- sobre: descrição do tutor (tipo: texto)<br>
+- foto: foto do tutor (tipo: texto)<br>
 
 <h2> Tabela: Mensagens </h2>
 A tabela Mensagens armazena informações sobre as mensagens enviadas para os tutores/organização e um usuário que queira adotar o pet. Cada registro na tabela representa uma mensagem e inclui os seguintes campos:
@@ -49,6 +54,7 @@ A tabela Mensagens armazena informações sobre as mensagens enviadas para os tu
 - lida: um indicador que informa se a mensagem foi lida ou não (tipo: booleano)<br>
 - id_tutor: id do dono do pet (tipo: inteiro)<br>
 - id_pet: id do pet que o usuario deseja adotar (tipo: inteiro)<br>
+<<<<<<< HEAD
 ## Diagrama 
 ![diagrama adopet](/img/diagrama_adopet.png)
 
