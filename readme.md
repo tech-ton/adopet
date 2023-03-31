@@ -1,17 +1,9 @@
 
 
 <body>
-<style>
-      body {
-        background-color: white;
-      }
-      h1,h2,h3 {
-        color: black;
-      }
-    </style>
 
 ![diagrama adopet](/img/adopet-logo.png)
-<font color="3874ff">
+
 <h1> Sobre </h1>
 Após alguns testes com protótipos feitos pelo time de UX/UI de uma empresa, foi requisitada a primeira versão da Adopet, uma plataforma para conectar pessoas que desejam adotar animais de estimação e abrigos. A plataforma deve permitir ao usuário criar um perfil, visualizar os pets na fila de adoção. Por sua vez, os abrigos/ONGs podem criar um perfil para os pets e concretizar a adoção.</p>
 
@@ -54,8 +46,7 @@ A tabela Mensagens armazena informações sobre as mensagens enviadas para os tu
 - lida: um indicador que informa se a mensagem foi lida ou não (tipo: booleano)<br>
 - id_tutor: id do dono do pet (tipo: inteiro)<br>
 - id_pet: id do pet que o usuario deseja adotar (tipo: inteiro)<br>
-<<<<<<< HEAD
-## Diagrama 
+## Diagrama Relacional
 ![diagrama adopet](/img/diagrama_adopet.png)
 
 ## Como baixar o projeto
@@ -64,4 +55,6 @@ A tabela Mensagens armazena informações sobre as mensagens enviadas para os tu
 - coloque as variáves de ambiente e renomeie "exemplo.env" para ".env"
 - npm install
 - npx sequelize-cli db:seed:all (você precisa ter um database com o nome de adopet na sua máquina)
+
+<h3>Desenvolvido por: Elivelton Correa Firmino</h3>
 </body>

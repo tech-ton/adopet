@@ -1,12 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const routes = require('./routes')
 
-app.use(express.static('public'))
+routes(app);
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + 'public/index.html');
-})
 app.listen(process.env.PORT, () =>{
     console.log(`server funcionando na porta ${process.env.PORT}`);
 });
+
+module.exports = app;
