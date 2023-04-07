@@ -1,14 +1,23 @@
 {
   "development": {
-    "host": "localhost",
+    "username": "root",
+    "password": "1230",
+    "database": "adopet",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
-    "host": "localhost",
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "host": "localhost",
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }
