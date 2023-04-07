@@ -9,5 +9,4 @@ route.get('/tutores/:id',controller.PegaUmTutor);
 route.put('/tutores/:id',controller.AtualizaUmTutor);
 route.delete('/tutores/:id',controller.DeletaUmTutor);
 
-
 module.exports = route;
