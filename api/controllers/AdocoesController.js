@@ -4,6 +4,9 @@ class AdocoesController{
     static async PegaTodasAdocoes (req,res){
         try {
             const todasAdocoes = await database.Adocoes.findAll();
+            if (todasAdocoes.length <= 0){
+                return res.status(200).json("Não há adoções registradas");
+            }
             return res.status(200).json(todasAdocoes);
         } catch (error) {
             return res.status(500).json(error.message);
@@ -14,7 +17,9 @@ class AdocoesController{
         try {
             const { id } = req.params;
             const umaAdocao = await database.Adocoes.findOne({where: {id:Number(id)} });
-            console.log(typeof umaAdocao.dataValues.id_pet);
+            if (umaAdocao == null){
+                return res.status(200).json("Não há adoção registrada com esse id");
+            }
             return res.status(200).json(umaAdocao);
         } catch (error) {
             return res.status(500).json(error.message);
@@ -39,8 +44,11 @@ class AdocoesController{
         try {
             const { id } = req.params;
             const adocao = req.body;
-            await database.Adocoes.update(adocao,{ where: {id:Number(id)} });
             const umaAdocao = await database.Adocoes.findOne({where: {id:Number(id)} });
+            if (umaAdocao == null){
+                return res.status(200).json("Não há adoção registrada com esse id");
+            }
+            await database.Adocoes.update(adocao,{ where: {id:Number(id)} });
             return res.status(200).json(umaAdocao);
         } catch (error) {
             return res.status(500).json(error.message);
@@ -50,11 +58,15 @@ class AdocoesController{
     static async DeletaUmaAdocao(req, res){
         try {
             const { id } = req.params;
-            database.sequelize.transaction(async t=>{
-                await database.Adocoes.destroy({where: {id:Number(id)} }, {transaction: t});
-                return res.status(200).json({message:`A adocao com o id ${id} foi deletado`});
-            })
-            
+            database.sequelize.transaction(async transacao=>{ 
+            const umaAdocao = await database.Adocoes.findOne({where: {id:Number(id)} }, {transaction: transacao});
+            if (umaAdocao == null){
+                return res.status(200).json("Não há adoção registrada com esse id");
+            }
+            await database.Pets.scope('adotado').update({adotado: false},{ where: {id:umaAdocao.dataValues.id_pet} }, {transaction: transacao});
+            await database.Adocoes.destroy({where: {id:Number(id)} }, {transaction: transacao});
+            return res.status(200).json({message:`A adocao com o id ${id} foi deletado`});
+            }) 
         } catch (error) {
             return res.status(500).json(error.message);
         }

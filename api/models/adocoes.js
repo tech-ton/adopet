@@ -15,7 +15,23 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Adocoes.init({
-    data: DataTypes.DATEONLY
+    data: {
+      type: DataTypes.DATEONLY,
+      validate:{
+        isDate: {
+          args:true,
+          msg: "formato de data incorreto"
+        },
+        not: {
+          args: /[<"'=>]/,
+          msg: "Não é permitido caracteres especiais na data"
+        },
+        notEmpty: {
+          args: true,
+          msg: "Não é permitido campo data ser vazio"
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Adocoes',

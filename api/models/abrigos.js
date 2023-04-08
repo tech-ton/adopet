@@ -15,7 +15,20 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Abrigos.init({
-    nome_ong: DataTypes.STRING
+    nome_ong: {
+      type: DataTypes.STRING,
+      validate: {
+        validaNome: dado=>{
+          if (dado.length < 5){
+            throw new Error("O nome do abrigo de ter no minimo 5 caracteres")
+          }
+        },
+        not: {
+          args: /[<"'=>]/,
+          msg: "Não é permitido caracteres especiais no nome do abrigo"
+        },
+      }
+    }
   }, {
     sequelize,
     modelName: 'Abrigos',

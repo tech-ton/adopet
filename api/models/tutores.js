@@ -15,13 +15,75 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Tutores.init({
-    nome: DataTypes.STRING,
-    email: DataTypes.STRING,
-    senha: DataTypes.STRING,
-    cidade: DataTypes.STRING,
-    telefone: DataTypes.STRING,
-    sobre: DataTypes.STRING,
-    foto: DataTypes.STRING
+    nome: {
+      type: DataTypes.STRING,
+      validate: {
+        validanome: nome=>{
+          if (nome.length < 5){
+            throw new Error("O nome deve ter no minimo 5 caracteres")
+          }
+        },
+        not: {
+          args: /[<"'=>]/,
+          msg: "Não é permitido caracteres especiais no nome"
+        }
+      }
+    },
+    email: {
+      type:DataTypes.STRING,
+      validate: {
+        not: {
+          args: /[<"'= >]/,
+          msg: "Não é permitido caracteres especiais no email"
+        },
+        isEmail: true
+      }
+    },
+    senha: {
+      type: DataTypes.STRING,
+      validate: {
+        not: {
+          args: /[<"'= >]/,
+          msg: "Não é permitido caracteres especiais na senha"
+        }
+      }
+    },
+    cidade: {
+      type: DataTypes.STRING,
+      validate: {
+        not: {
+          args: /[<"'=>]/,
+          msg: "Não é permitido caracteres especiais no campo cidade"
+        }
+      }
+    },
+    telefone: {
+      type: DataTypes.STRING,
+      validate: {
+        not: {
+          args: /[<"'=>]/,
+          msg: "Não é permitido caracteres especiais no telefone"
+        }
+      }
+    },
+    sobre: {
+      type: DataTypes.STRING,
+      validate: {
+        not: {
+          args: /[<"'=>]/,
+          msg: "Não é permitido caracteres especiais na descrição"
+        }
+      }
+    },
+    foto: {
+      type: DataTypes.STRING,
+      validate: {
+        not: {
+          args: /[<"' >]/,
+          msg: "Não é permitido caracteres especiais na foto"
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Tutores',

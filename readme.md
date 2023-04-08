@@ -54,7 +54,10 @@ A tabela Adocoes armazena informações sobre o pet que foi adotado por um tutor
 ## Diagrama Relacional
 ![diagrama adopet](/img/diagrama.png)
 
-
+## Regras de negócio
+- Ao realizar uma adoção, o campo “adotado” é modificado para true, identificando assim que a adoção foi concretizada
+- Se o animal for adotado, não aparecer no filtro de busca
+- Somente a entidade Abrigo pode cancelar a adoção
 
 ## Como baixar o projeto
 - git clone https://github.com/etn-43/adopet.git

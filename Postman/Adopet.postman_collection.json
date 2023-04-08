@@ -1,0 +1,493 @@
+{
+	"info": {
+		"_postman_id": "169b3b5a-fc9f-4984-bc00-641f25e6d765",
+		"name": "Adopet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15869571"
+	},
+	"item": [
+		{
+			"name": "Tutores",
+			"item": [
+				{
+					"name": "Lista todos tutores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4040/tutores",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"tutores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista tutor id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4040/tutores/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"tutores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Apaga tutor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4040/tutores/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"tutores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cria tutor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"nome\": \"marcia\",\r\n        \"email\": \"marcia@admin.com\",\r\n        \"senha\": \"1234\",\r\n        \"cidade\": \"rj\",\r\n        \"telefone\": \"65354457\",\r\n        \"sobre\": \"sou legal\",\r\n        \"foto\": \"https://www.if.ufrgs.br/~barbosa/Media/Photos/Barbosa/2018/barbosa-mast-2018-1.jpg\",\r\n        \"createdAt\": \"2023-04-07T23:54:42.000Z\",\r\n        \"updatedAt\": \"2023-04-07T23:54:42.000Z\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4040/tutores",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"tutores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza tutor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"super@admin.com\",\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4040/tutores/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"tutores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Abrigos",
+			"item": [
+				{
+					"name": "Lista abrigos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4040/abrigos",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"abrigos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cria abrigos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome_ong\": \"User pets\",\r\n        \"createdAt\": \"2023-04-07T23:54:42.000Z\",\r\n        \"updatedAt\": \"2023-04-07T23:54:42.000Z\",\r\n        \"id_dono\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4040/abrigos",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"abrigos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista abrigo id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4040/abrigos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"abrigos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza abrigo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_ong\": \"future pets\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4040/abrigos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"abrigos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta abrigo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4040/abrigos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"abrigos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pets",
+			"item": [
+				{
+					"name": "pets",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"nome\": \"mailou\",\r\n    \"descricao\": \"muito manso\",\r\n    \"idade\": \"dois anos\",\r\n    \"porte\": \"grande\",\r\n    \"adotado\": false,\r\n    \"endereco\": \"sp\",\r\n    \"foto\": \"https://i0.wp.com/petanjo.com/blog/wp-content/uploads/2016/12/Captura-de-Tela-2016-12-13-a%CC%80s-11.00.33.png?resize=238%2C300&ssl=1\",\r\n    \"createdAt\": \"2023-04-07T23:54:42.000Z\",\r\n    \"updatedAt\": \"2023-04-08T17:29:22.000Z\",\r\n    \"id_abrigo\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4040/pets",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista pet id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4040/pets/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"pets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista pets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4040/pets",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista pets Adotados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4040/pets/adotados",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"pets",
+								"adotados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza pet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idade\": \"tres anos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4040/pets/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"pets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Apaga pet",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4040/pets/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"pets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Adocoes",
+			"item": [
+				{
+					"name": "Cria adocoes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"data\": \"2023-04-07\",\r\n        \"createdAt\": \"2023-04-07T23:54:42.000Z\",\r\n        \"updatedAt\": \"2023-04-07T23:54:42.000Z\",\r\n        \"id_tutor\": 2,\r\n        \"id_pet\": 1\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4040/adocoes",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"adocoes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista Adocoes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4040/adocoes",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"adocoes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista adocao id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4040/adocoes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"adocoes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta Adocao",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4040/adocoes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"adocoes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza adocoes",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"data\": \"2020-04-07\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4040/adocoes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"adocoes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

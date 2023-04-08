@@ -16,16 +16,104 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Pets.init({
-    nome: DataTypes.STRING,
-    descricao: DataTypes.STRING,
-    idade: DataTypes.STRING,
-    porte: DataTypes.STRING,
-    adotado: DataTypes.BOOLEAN,
-    endereco: DataTypes.STRING,
-    foto: DataTypes.STRING
+    nome: {
+      type:DataTypes.STRING,
+      validate: {
+        not: {
+          args: /[<"'=>]/,
+          msg: "Não é permitido caracteres especiais no nome"
+        },
+        notEmpty: {
+          args: true,
+          msg: "Não é permitido campo nome ser vazio"
+        }
+      }
+    },
+    descricao: {
+      type:DataTypes.STRING,
+      validate: {
+        not: {
+          args: /[<"'=>]/,
+          msg: "Não é permitido caracteres especiais na descrição"
+        },
+        notEmpty: {
+          args: true,
+          msg: "Não é permitido campo descrição ser vazio"
+        }
+      }
+    },
+    idade: {
+      type:DataTypes.STRING,
+      validate: {
+        not: {
+          args: /[<"'=>]/,
+          msg: "Não é permitido caracteres especiais no campo idade"
+        },
+        notEmpty: {
+          args: true,
+          msg: "Não é permitido campo idade ser vazio"
+        }
+      }
+    },
+    porte: {
+      type:DataTypes.STRING,
+      validate: {
+        not: {
+          args: /[<"'=>]/,
+          msg: "Não é permitido caracteres especiais no campo porte"
+        },
+        notEmpty: {
+          args: true,
+          msg: "Não é permitido campo porte ser vazio"
+        }
+      }
+    },
+    adotado: {
+      type: DataTypes.BOOLEAN,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "Não é permitido campo adotado ser vazio"
+        }
+      }
+    },
+    endereco: {
+      type:DataTypes.STRING,
+      validate: {
+        not: {
+          args: /[<"'=>]/,
+          msg: "Não é permitido caracteres especiais no endereço"
+        },
+        notEmpty: {
+          args: true,
+          msg: "Não é permitido campo endereço ser vazio"
+        }
+      }
+    },
+    foto: {
+      type:DataTypes.STRING,
+      validate: {
+        not: {
+          args: /[<"' >]/,
+          msg: "Não é permitido caracteres especiais na foto"
+        },
+        notEmpty: {
+          args: true,
+          msg: "Não é permitido campo foto ser vazio"
+        }
+      }
+    }
   }, {
     defaultScope: {
       where: { adotado: false }
+    },
+    scopes: {
+      adotado: { 
+        where: { adotado: true }
+      },
+      todos: {
+        where: { }
+      }
     },
     sequelize,
     modelName: 'Pets',
