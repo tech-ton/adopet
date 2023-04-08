@@ -46,7 +46,7 @@ class AbrigosController{
         try {
             const { id } = req.params;
             await database.Abrigos.destroy({where: {id:Number(id)} });
-            return res.status(200).json({message:`O tutor com o id ${id} foi deletado`});
+            return res.status(200).json({message:`O abrigo com o id ${id} foi deletado`});
         } catch (error) {
             return res.status(500).json(error.message);
         }
