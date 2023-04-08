@@ -10,42 +10,42 @@ class AbrigosController{
         }
     }
 
-    static async PegaUmTutor (req, res){
+    static async PegaUmAbrigo(req, res){
         try {
             const { id } = req.params;
-            const umtutor = await database.Tutores.findOne({where: {id:Number(id)} });
-            return res.status(200).json(umtutor);
+            const umAbrigo = await database.Abrigos.findOne({where: {id:Number(id)} });
+            return res.status(200).json(umAbrigo);
         } catch (error) {
             return res.status(500).json(error.message);
         }
     }
 
-    static async CriaUmTutor (req, res){
+    static async CriaUmAbrigo (req, res){
         try {
-            const tutor = req.body;
-            const tutorCriado = await database.Tutores.create(tutor);
-            return res.status(200).json(tutorCriado);
+            const abrigo = req.body;
+            const abrigoCriado = await database.Abrigos.create(abrigo);
+            return res.status(200).json(abrigoCriado);
         } catch (error) {
             return res.status(500).json(error.message);
         }
     }
 
-    static async AtualizaUmTutor (req, res){
+    static async AtualizaUmAbrigo (req, res){
         try {
             const { id } = req.params;
-            const tutor = req.body;
-            await database.Tutores.update(tutor,{ where: {id:Number(id)} });
-            const umtutor = await database.Tutores.findOne({where: {id:Number(id)} });
-            return res.status(200).json(umtutor);
+            const abrigo = req.body;
+            await database.Abrigos.update(abrigo,{ where: {id:Number(id)} });
+            const umAbrigo = await database.Abrigos.findOne({where: {id:Number(id)} });
+            return res.status(200).json(umAbrigo);
         } catch (error) {
             return res.status(500).json(error.message);
         }
     }
 
-    static async DeletaUmTutor (req, res){
+    static async DeletaUmAbrigo (req, res){
         try {
             const { id } = req.params;
-            await database.Tutores.destroy({where: {id:Number(id)} });
+            await database.Abrigos.destroy({where: {id:Number(id)} });
             return res.status(200).json({message:`O tutor com o id ${id} foi deletado`});
         } catch (error) {
             return res.status(500).json(error.message);
