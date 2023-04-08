@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Adocoes.belongsTo(models.Tutores, { foreignKey: 'id_tutor' });
-      Adocoes.belongsTo(models.Pets, { foreignKey: 'id_pet' });
+      Adocoes.belongsTo(models.Pets, { foreignKey: 'id_pet'});
     }
   }
   Adocoes.init({

@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Pets.belongsTo(models.Abrigos, { foreignKey: 'id_abrigo' })
-      Pets.hasOne(models.Adocoes, { foreignKey: 'id_pet' });
+      Pets.hasOne(models.Adocoes, { 
+        foreignKey: 'id_pet'});
     }
   }
   Pets.init({
@@ -23,6 +24,9 @@ module.exports = (sequelize, DataTypes) => {
     endereco: DataTypes.STRING,
     foto: DataTypes.STRING
   }, {
+    defaultScope: {
+      where: { adotado: false }
+    },
     sequelize,
     modelName: 'Pets',
   });
