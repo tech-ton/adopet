@@ -36,7 +36,14 @@ module.exports = (sequelize, DataTypes) => {
           args: /[<"'= >]/,
           msg: "Não é permitido caracteres especiais no email"
         },
-        isEmail: true
+        isEmail: {
+          args: true,
+          msg: "Precisa ser um e-mail valido"
+        },
+        notEmpty: {
+          args: true,
+          msg: "Não é permitido campo estar vazio"
+        }
       }
     },
     senha: {
@@ -45,6 +52,10 @@ module.exports = (sequelize, DataTypes) => {
         not: {
           args: /[<"'= >]/,
           msg: "Não é permitido caracteres especiais na senha"
+        },
+        notEmpty: {
+          args: true,
+          msg: "Não é permitido campo estar vazio"
         }
       }
     },
@@ -54,6 +65,10 @@ module.exports = (sequelize, DataTypes) => {
         not: {
           args: /[<"'=>]/,
           msg: "Não é permitido caracteres especiais no campo cidade"
+        },
+        notEmpty: {
+          args: true,
+          msg: "Não é permitido campo estar vazio"
         }
       }
     },

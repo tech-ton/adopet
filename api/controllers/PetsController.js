@@ -5,7 +5,7 @@ class PetsController{
         try {
             const todosPets = await database.Pets.findAll();
             if (todosPets.length <= 0){
-                return res.status(200).json("Não há pets registrados");
+                return res.status(204).json("Não há pets registrados");
             }
             return res.status(200).json(todosPets);
         } catch (error) {
@@ -17,7 +17,7 @@ class PetsController{
         try {
             const todosPets = await database.Pets.scope('adotado').findAll();
             if (todosPets.length <= 0){
-                return res.status(200).json("Não há pets adotados");
+                return res.status(204).json("Não há pets adotados");
             }
             return res.status(200).json(todosPets);
         } catch (error) {
@@ -30,7 +30,7 @@ class PetsController{
             const { id } = req.params;
             const umPet = await database.Pets.scope('todos').findOne({where: {id:Number(id)} });
             if (umPet == null){
-                return res.status(200).json("Não há um pet registrado com esse id");
+                return res.status(404).json("Não há um pet registrado com esse id");
             }
             return res.status(200).json(umPet);
         } catch (error) {
@@ -54,7 +54,7 @@ class PetsController{
             const pet = req.body;
             const umPet = await database.Pets.findOne({where: {id:Number(id)} });
             if (umPet == null){
-                return res.status(200).json("Não há um pet registrado com esse id");
+                return res.status(404).json("Não há um pet registrado com esse id");
             }
             await database.Pets.scope('todos').update(pet,{ where: {id:Number(id)} });
             return res.status(200).json(umPet);
@@ -68,7 +68,7 @@ class PetsController{
             const { id } = req.params;
             const umPet = await database.Pets.findOne({where: {id:Number(id)} });
             if (umPet == null){
-                return res.status(200).json("Não há um pet registrado com esse id");
+                return res.status(404).json("Não há um pet registrado com esse id");
             }
             await database.Pets.destroy({where: {id:Number(id)} });
             return res.status(200).json({message:`O pet com o id ${id} foi deletado`});

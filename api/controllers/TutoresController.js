@@ -5,7 +5,7 @@ class TutoresController{
         try {
             const todosTutores = await database.Tutores.findAll();
             if (todosTutores.length <= 0){
-                return res.status(200).json("Não há tutores registrados");
+                return res.status(204).json("Não há tutores registrados");
             }
             return res.status(200).json(todosTutores);
         } catch (error) {
@@ -18,7 +18,7 @@ class TutoresController{
             const { id } = req.params;
             const umtutor = await database.Tutores.findOne({where: {id:Number(id)} });
             if (umtutor == null){
-                return res.status(200).json("Não há um tutor registrado com esse id");
+                return res.status(404).json("Não há um tutor registrado com esse id");
             }
             return res.status(200).json(umtutor);
         } catch (error) {
@@ -42,7 +42,7 @@ class TutoresController{
             const tutor = req.body;
             const umtutor = await database.Tutores.findOne({where: {id:Number(id)} });
             if (umtutor == null){
-                return res.status(200).json("Não há um tutor registrado com esse id");
+                return res.status(404).json("Não há um tutor registrado com esse id");
             }
             await database.Tutores.update(tutor,{ where: {id:Number(id)} });
             return res.status(200).json(umtutor);
@@ -56,7 +56,7 @@ class TutoresController{
             const { id } = req.params;
             const umtutor = await database.Tutores.findOne({where: {id:Number(id)} });
             if (umtutor == null){
-                return res.status(200).json("Não há um tutor registrado com esse id");
+                return res.status(404).json("Não há um tutor registrado com esse id");
             }
             await database.Tutores.destroy({where: {id:Number(id)} });
             return res.status(200).json({message:`O tutor com o id ${id} foi deletado`});

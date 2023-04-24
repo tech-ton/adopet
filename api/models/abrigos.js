@@ -27,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
           args: /[<"'=>]/,
           msg: "Não é permitido caracteres especiais no nome do abrigo"
         },
+        notEmpty: {
+          args: true,
+          msg: "Não é permitido campo estar vazio"
+        }
       }
     }
   }, {
