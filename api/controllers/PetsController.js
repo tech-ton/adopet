@@ -64,14 +64,18 @@ class PetsController{
     }
 
     static async DeletaUmPet(req, res){
-        try {
+        try { 
             const { id } = req.params;
             const umPet = await database.Pets.findOne({where: {id:Number(id)} });
             if (umPet == null){
                 return res.status(404).json("Não há um pet registrado com esse id");
             }
-            await database.Pets.destroy({where: {id:Number(id)} });
-            return res.status(200).json({message:`O pet com o id ${id} foi deletado`});
+            if (req.auth && umPet.id_abrigo == req.id) {
+                await database.Pets.destroy({where: {id:Number(id)} });
+                return res.status(200).json({msg:`O pet com o id ${id} foi deletado`});
+            } else {
+                return res.status(401).json({msg:`Você não tem permissão para deletar esse pet`});
+            }
         } catch (error) {
             return res.status(500).json(error.message);
         }

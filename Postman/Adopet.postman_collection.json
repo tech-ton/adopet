@@ -150,7 +150,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"nome_ong\": \"User pets\",\r\n        \"createdAt\": \"2023-04-07T23:54:42.000Z\",\r\n        \"updatedAt\": \"2023-04-07T23:54:42.000Z\",\r\n        \"id_dono\": 2\r\n}",
+							"raw": "{\r\n        \"nome_ong\": \"Concorrencia pets\",\r\n        \"createdAt\": \"2023-04-07T23:54:42.000Z\",\r\n        \"updatedAt\": \"2023-04-07T23:54:42.000Z\",\r\n        \"id_dono\": 3\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -196,7 +196,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome_ong\": \"future pets\"\r\n}",
+							"raw": "{\r\n    \"nome_ong\": \"future ps\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -204,14 +204,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:4040/abrigos/1",
+							"raw": "localhost:4040/abrigos/8",
 							"host": [
 								"localhost"
 							],
 							"port": "4040",
 							"path": [
 								"abrigos",
-								"1"
+								"8"
 							]
 						}
 					},
@@ -466,7 +466,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": " {\r\n    \"data\": \"2020-04-07\"\r\n}",
+							"raw": " {\r\n    \"id_tutor\": 2,\r\n    \"id_pet\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -482,6 +482,56 @@
 							"path": [
 								"adocoes",
 								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Acesso",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"senha\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4040/login",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:4040/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "4040",
+							"path": [
+								"logout"
 							]
 						}
 					},

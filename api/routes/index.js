@@ -7,7 +7,6 @@ const acesso = require('./acessoRoutes');
 const bodyParser = require('body-parser');
 module.exports = app =>{
     app.use(bodyParser.json());
-const acesso = require('./acessoRoutes');
-app.use([acesso, tutores, abrigos, pets, adocoes]);
+    app.use([acesso, tutores, abrigos, pets, adocoes]);
     app.use(erros.erro404,erros.capturaErro);
 }

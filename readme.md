@@ -59,6 +59,16 @@ A tabela Adocoes armazena informações sobre o pet que foi adotado por um tutor
 - Se o animal for adotado, não aparecer no filtro de busca
 - Somente a entidade Abrigo pode cancelar a adoção
 
+## Como funciona a API
+- A criação e listagem de Tutores e Abrigos é livre
+- A entidade tutor é usada para login na aplicação
+- Se um tutor for cadastrado em um abrigo, ele passa a ter privilegios de autorização personalizadas
+- Cada pet só é cadastrado se houver um abrigo
+- Somente o tutor dono do abrigo pode apagar a adoção do pet cadastrado em seu abrigo
+- Só quem está logado tem acesso a rota de adoções
+- É necessario usar o token de sessão para acessar as adoções ou apagar o registro de um Pet
+- O token de login expira em 2 minutos
+
 ## Como baixar o projeto
 - git clone https://github.com/etn-43/adopet.git
 - cd adopet
@@ -66,4 +76,8 @@ A tabela Adocoes armazena informações sobre o pet que foi adotado por um tutor
 - npm install
 - npx sequelize-cli db:seed:all (você precisa ter um database com o nome de adopet na sua máquina)
 
-### Desenvolvido por: Elivelton Correa Firmino
+## Funcionalidades Futuras
+- Integrar com o front-end
+- Realizar testes TDD
+
+### Desenvolvido por: Elivelton Firmino
